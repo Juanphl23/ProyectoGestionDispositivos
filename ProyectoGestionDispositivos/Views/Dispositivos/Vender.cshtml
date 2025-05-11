@@ -1,0 +1,47 @@
+﻿@model ProyectoGestionDispositivos.Models.VentaServicioViewModel
+@{
+    ViewData["Title"] = "Vender";
+    Layout = null;
+}
+
+<div class=" col-md-12">
+    <div class=" card">
+        <div class="card-header text-center">
+            <h5>Confirmar Venta de Servicio</h5>
+        </div>
+        <div class=" card-body">
+            <form asp-action="Vender" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="DispositivoId" value="@Model.DispositivoId" />
+                <dl class="row">
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.NombreDispositivo)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.NombreDispositivo)
+                    </dd>
+                    <dt class="col-sm-2">
+                        @Html.DisplayNameFor(model => model.Costo)
+                    </dt>
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.Costo)
+                    </dd>
+                    
+                </dl>
+                <div class="form-group">
+                    <label><strong>Seleccione la cantidad:</strong></label>
+                    <input asp-for="Cantidad" class="form-control" placeholder=" Cantidad" />
+                    <span asp-validation-for="Cantidad" class="text-danger"></span>
+                </div>
+
+                <div class=" card-footer text-center">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-save"></i> Guardar</button>
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-dismiss="modal"><i class="fa fa-ban"></i> Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
